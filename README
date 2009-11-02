@@ -1,0 +1,87 @@
+AnalyzeCopy - black box validation suite for copying files
+copyright 2009 - Simon Strandgaard
+
+project name:
+AnalyzeCopy
+
+project description:
+Torture-testing of File managers and programs that copy files. 
+
+------------------------------------------------------------
+see this article.
+
+http://www.coredumps.de/doc/dump/zwicky/testdump.doc.html
+
+Torture-testing Backup and Archive Programs: 
+Things You Ought to Know But Probably Would Rather Not
+         Elizabeth D. Zwicky 
+         SRI International
+         Lisa V 1991
+
+------------------------------------------------------------
+
+
+Inspirion comes from "Backup Bouncer" by "Nathaniel Gray",
+which I was very surprised to see. Its code is very elegant
+and some of the things going on is quite hard to do in Ruby.
+
+I choose not to extend his code, since I cannot code BASH
+and would have a hard time figuring out how to add reporting
+features. 
+
+I already have a whitebox test suite.
+
+
+------------------------------------------------------------
+
+Vision: 
+ 1. test for correctness
+ 2. test for speed
+ 3. test "copy" tools on multiple platforms
+ 4. generate a HTML report
+
+Mission right now:
+ 1. something that can test my own "copy" program for correctness.
+
+
+------------------------------------------------------------
+IDEA: html report should gather data from the result dirs, 
+such as exitstatus, version, long version, is_ignored.
+
+IDEA: 80_resource_fork, should be splitted into a 
+62_hardlink_resource test, so that tools that have no hardlink
+support also fails the resource fork test, despite having 
+resource fork support.
+
+IDEA: chgrp, chown
+
+IDEA: is order of ACL entries preserved.
+
+IDEA: can we copy files with invalid ACL's so the ACL's are preserved.
+
+IDEA: copy dirs using Java's file api, what ever that is
+
+==================================================================
+
+------ stat.atime --------
+
+We could create a read-only volume and copy data from it.
+After the copy operation is completed then remount the
+target volume as read-only... and then compare atime.
+However it's not worth it.
+
+
+------ stat.ctime --------
+
+stat.ctime is updated when the inode is changed, by the 
+filesystem. It's not a user settable property.
+So I don't think its possible to test it.
+
+
+------ cloaked files (inode 0) --------
+
+In the apple filesystem there are some files with inode 0, making
+them invisible for most tools. 
+I don't think its possible to create files with inode 0 manually,
+so there is no way to test this.
+

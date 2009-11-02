@@ -1,0 +1,6 @@
+ac_copy
+ac_getmode
+ac_setresource
+ac_mkalias
+bb_hardlink
+*.o

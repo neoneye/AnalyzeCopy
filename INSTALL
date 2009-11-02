@@ -1,0 +1,29 @@
+AnalyzeCopy - black box validation suite for copying files
+
+
+==== INSTALL ====
+
+In order to run AnalyzeCopy you must install:
+
+ 1. Ruby
+ 2. Rake
+
+
+Optional tools, if found they are used for testing:
+
+ 3. osxutils, http://osxutils.sourceforge.net/
+ 4. xbup, http://www.shoup.net/xbup/
+
+
+To build and run:
+
+prompt> cd utils
+prompt> rake
+prompt> cd ..
+prompt> rake
+prompt>
+
+You will be prompted for "sudo" password, since some
+of the tests requires root.
+
+

@@ -1,0 +1,251 @@
+require "runner"
+require "formatter"
+
+
+def hdiutil_create_sparseimage(name)
+  system(
+    "hdiutil", "create", 
+    "-size", "1000m", 
+    "-fs", "Journaled HFS+", 
+    "-volname", name,
+    "-type", "SPARSE",
+    "./#{name}"
+  )
+end
+
+def hdiutil_mount_sparseimage(name)
+  system(
+    "hdiutil", "mount",
+    "-owners", "on",
+    "./#{name}.sparseimage"
+  )
+end
+
+def hdiutil_unmount(name)
+  system("sudo", "hdiutil", "unmount", "/Volumes/#{name}")
+end
+
+def hdiutil_unmount_force(name)
+  system("sudo", "hdiutil", "unmount", "/Volumes/#{name}", "-force")
+end
+
+def create_and_mount_volume(name)
+  if FileTest.exist?("/Volumes/#{name}")
+    # puts "volume already exist"
+    return
+  end
+  unless FileTest.exist?("./#{name}.sparseimage")
+    hdiutil_create_sparseimage(name)
+  end
+
+  hdiutil_mount_sparseimage(name)
+  
+  # enable access control lists on our volume
+  system("sudo", "fsaclctl", "-p", "/Volumes/#{name}", "-e")
+
+  # make it easy to detect if the volume is ours
+  FileUtils.touch("/Volumes/#{name}/AnalyzeCopy-Volume")
+end
+
+# example of the string returned: "Mac OS X 10.5.8 (9L31a)"
+def obtain_system_version
+  "%s %s (%s)" % (`sw_vers`.scan(/:\s+(.*?)$/m))
+end
+
+
+
+desc "Display content of the tests and testees dirs"
+task :list_dirs do
+  r = Runner.instance
+  puts "--------- TESTS ---------"
+  r.test_names.each {|s| puts "   #{s}" }
+  puts
+  puts "--------- TESTEES ---------"
+  r.testee_names.each {|s| puts "   #{s}" }
+  puts
+end
+
+desc "Display version info for all testees"
+task :list_versions do
+
+  puts "--------- SYSTEM ---------"
+  puts("   %-20s %s" % ["platform", obtain_system_version])
+  puts
+  
+  r = Runner.instance
+  puts "--------- TESTS ---------"
+  r.tests.each do |t| 
+    name = t.class::NAME
+    info = "NOT INSTALLED"
+    if t.is_installed 
+      info = t.version
+    end
+    puts("   %-20s %s" % [name, info])
+  end
+  puts
+
+  puts "--------- TESTEES ---------"
+  r.testees.each do |t| 
+    name = t.class::NAME
+    info = "NOT INSTALLED"
+    if t.is_installed 
+      info = t.version
+    end
+    puts("   %-20s %s" % [name, info])
+  end
+  puts
+end
+
+desc "ld is shorthand for list_dirs"
+task :ld => :list_dirs
+
+desc "lv is shorthand for list_versions"
+task :lv => :list_versions
+
+desc "list the ignored tests"
+task :list_ignored do
+  r = Runner.instance
+  puts "--------- CAN RUN ALL TESTS? ---------"
+  r.testees.each do |t| 
+    name = t.class::NAME
+    ary = t.ignore_tests || []
+    s = ary.empty? ? "yes" : ("NOT " + ary.join(", "))
+    puts("   %20s ... %s" % [name, s])
+  end
+end
+
+desc "li is shorthand for list_ignored"
+task :li => :list_ignored
+
+desc "determine how many test dataset groups that are needed"
+task :group do
+  r = Runner.instance
+  puts "-------------- groups_and_tests --------------"
+  r.groups_and_tests.each do |groupname, testnames|
+    s = "ALL"
+    if testnames && testnames.size > 0
+      s = "exclude " + testnames.join(", ")
+    end
+    puts "%20s ... %-s" % [groupname, s]
+  end
+  puts "-------------- testee_groups --------------"
+  r.testees.each_with_index do |t, i|
+    testeename = r.testee_names[i]
+    groupname = r.testee_groups[i]
+    puts "%20s ... %-s" % [testeename, groupname]
+  end
+end
+
+task :g => :group
+
+
+task :create_and_mount do
+  create_and_mount_volume("AnalyzeCopySource")
+  create_and_mount_volume("AnalyzeCopyDest")
+end
+
+desc "detach the diskimages"
+task :unmount do
+  hdiutil_unmount("AnalyzeCopySource")
+  hdiutil_unmount("AnalyzeCopyDest")
+end
+
+desc "force detachment of the diskimages"
+task :force_unmount do
+  hdiutil_unmount_force("AnalyzeCopySource")
+  hdiutil_unmount_force("AnalyzeCopyDest")
+end
+
+task :clean do
+  FileUtils.rm_f("AnalyzeCopySource.sparseimage")
+  FileUtils.rm_f("AnalyzeCopyDest.sparseimage")
+end
+
+task :cam => :create_and_mount
+task :um => :unmount
+
+task :run do
+  src_dir = "/Volumes/AnalyzeCopySource"
+  dest_dir = "/Volumes/AnalyzeCopyDest"
+
+  r = Runner.instance
+
+  # make sure the source and destination volumes are mounted
+  r.check(src_dir)
+  r.check(dest_dir)
+
+  puts "=========== REMOVE OLD TEST RESULTS ==========="
+  r.clean_results(dest_dir)
+
+  puts "=========== GENERATE LOTS OF TEST DATA ==========="
+  r.create(src_dir)
+
+  puts "=========== COPY TEST DATA ==========="
+  r.perform_copy(src_dir, dest_dir)
+end
+
+task :verify do
+  src_dir = "/Volumes/AnalyzeCopySource"
+  dest_dir = "/Volumes/AnalyzeCopyDest"
+
+  r = Runner.instance
+
+  # make sure the source and destination volumes are mounted
+  r.check(src_dir)
+  r.check(dest_dir)
+
+  puts "=========== VERIFYING DATA ==========="
+  r.perform_verify(src_dir, dest_dir)
+end
+
+desc "Generate an index.html report"
+task :html do
+  dest_dir = "/Volumes/AnalyzeCopyDest"
+
+  r = Runner.instance
+  r.check(dest_dir)
+  
+  
+  ary_tests = []
+  r.tests.each_with_index do |test, test_index|  
+    name = test.class::NAME.dup
+    ary_tests << {
+      :name => name,
+      :ident => name.match(/^\d+/).to_s,
+      :prettyname => name.sub(/^\d+_/, ''),
+      :is_installed => r.tests_installed[test_index]
+    }
+  end
+
+  ary_testees = []
+  r.testees.each_with_index do |testee, testee_index|  
+    is_installed = r.testees_installed[testee_index]
+    version = is_installed ? testee.version : "NOT INSTALLED"
+    ary_testees << {
+      :name => testee.class::NAME.dup,
+      :is_installed => is_installed,
+      :version => version
+    }
+  end
+  
+
+  f = Formatter.new
+  f.system_version = obtain_system_version
+  f.run(dest_dir, ary_tests, ary_testees)
+  f.write("index.html")
+
+  `open index.html`
+end
+
+task :h => :html
+
+task :sudo do
+  puts "this script must run as root"
+  system("sudo true")
+end
+
+desc "Verify and generate Html"
+task :vh => [:sudo, :verify, :html]
+
+
+task :default => [:sudo, :create_and_mount, :run, :verify, :html]
