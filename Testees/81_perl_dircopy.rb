@@ -2,7 +2,7 @@ PATH_PERL = "/usr/bin/perl"
 PATH_COPY = File.join(Dir.pwd, "scripts", "ac_perl_copy.pl")
 
 def ignore_tests
-  %w(80_fifo)
+  %w(80_fifo 62_hardlink_fifo)
 end
 
 def is_installed

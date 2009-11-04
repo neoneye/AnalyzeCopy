@@ -1,3 +1,8 @@
+0.9.x
+
+Added 62_hardlink_fifo.rb which "ditto", "tar", "pax" doesn't like.
+
+
 0.9.0
 
 First public release of AnalyzeCopy.

@@ -2,7 +2,7 @@ ZIP_PATH = "/usr/bin/zip"
 UNZIP_PATH = "/usr/bin/unzip"
 
 def ignore_tests
-  %w(80_fifo)
+  %w(80_fifo 62_hardlink_fifo)
 end
 
 def is_installed
