@@ -13,9 +13,9 @@ end
 def verify(original_dir)
   errors = %w(A B)
   if FileTest.exist?("my_null_char_node")
-    errors.delete('A')
+    errors.delete('B')
     if File.stat("my_null_char_node").ftype == "characterSpecial"
-      errors.delete('B')
+      errors.delete('A')
     end
   end
   { :errors => errors }

@@ -13,9 +13,9 @@ end
 def verify(original_dir)
   errors = %w(A B)
   if FileTest.exist?("my_fifo_node")
-    errors.delete('A')
+    errors.delete('B')
     if File.stat("my_fifo_node").ftype == "fifo"
-      errors.delete('B')
+      errors.delete('A')
     end
   end
   { :errors => errors }

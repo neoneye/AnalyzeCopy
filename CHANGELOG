@@ -2,6 +2,8 @@
 
 Added 62_hardlink_fifo.rb which "ditto", "tar", "pax" doesn't like.
 
+Assigned new letters for some of the subtests.
+
 
 0.9.0
 

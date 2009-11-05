@@ -27,8 +27,8 @@ end
 
 def verify(original_dir)
   errors = %w(A B C)
-  errors.delete('A') if same_content(original_dir, "empty.txt")
+  errors.delete('C') if same_content(original_dir, "empty.txt")
   errors.delete('B') if same_content(original_dir, "small.txt")
-  errors.delete('C') if same_content(original_dir, "big.txt")
+  errors.delete('A') if same_content(original_dir, "big.txt")
   { :errors => errors }
 end
