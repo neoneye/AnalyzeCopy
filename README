@@ -55,6 +55,12 @@ resource fork support.
 
 IDEA: chgrp, chown
 
+IDEA: backup date
+
+IDEA: label color
+
+IDEA: Finder vs. attached comments
+
 IDEA: is order of ACL entries preserved.
 
 IDEA: can we copy files with invalid ACL's so the ACL's are preserved.
