@@ -1,3 +1,7 @@
+def ignore_tests
+  %w(10_permissions)
+end
+
 def is_installed
   true
 end

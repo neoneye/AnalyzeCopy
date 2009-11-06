@@ -1,17 +1,13 @@
-def ignore_tests
-  %w(62_hardlink_fifo 80_fifo 81_char 82_block)
-end
-
 def is_installed
   true
 end
 
 def version
-  "1.8"
+  "0.0"
 end
 
 def print_full_version
-  puts "1.8"
+  puts "0.0"
 end
 
 def copy_data(source_dir, dest_dir)
@@ -19,7 +15,7 @@ def copy_data(source_dir, dest_dir)
   s = <<CMD
 mkdir "$DEST_DIR"
 cd "$DEST_DIR"
-echo "You must interactively copy the files using Xfile" >> README.txt
+echo "You must interactively copy the files using opcoders file manager" >> README.txt
 CMD
   puts s
   puts "------------"

@@ -1,3 +1,7 @@
+def ignore_tests
+  %w(62_hardlink_fifo 80_fifo)
+end
+
 def is_installed
   true
 end

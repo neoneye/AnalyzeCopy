@@ -4,6 +4,8 @@ Added 62_hardlink_fifo.rb which "ditto", "tar", "pax" doesn't like.
 
 Assigned new letters for some of the subtests.
 
+Added 47_opcoders.rb for exercising my own file manager project.
+
 
 0.9.0
 
