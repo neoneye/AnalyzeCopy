@@ -63,8 +63,6 @@ IDEA: Finder vs. attached comments
 
 IDEA: is order of ACL entries preserved.
 
-IDEA: is order of xattr entries preserved.
-
 IDEA: can we copy files with invalid ACL's so the ACL's are preserved.
 
 IDEA: exercise mode_t for mkfifo

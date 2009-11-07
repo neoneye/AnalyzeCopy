@@ -8,6 +8,8 @@ Added 47_opcoders.rb for exercising my own file manager project.
 
 Added check for zero size xattr entries.
 
+Added 41_xattr_ordering.rb to exercise if all the xattrs gets 
+copied and that the order is preserved.
 
 0.9.0
 
