@@ -71,6 +71,8 @@ IDEA: exercise mode_t for mknod
 
 IDEA: mode_t for symlinks: chmod -h 660 mysymlink
 
+IDEA: symlinks can have different timestamp than files
+
 IDEA: test with difficult filenames
 
 IDEA: "no resource fork" != "has zero-size resource fork"
