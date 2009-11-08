@@ -1,3 +1,6 @@
+#
+# depends on http://xattr.sourceforge.net/
+#
 PATH = "/usr/bin/xattr"
 
 def is_installed

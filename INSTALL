@@ -12,7 +12,8 @@ In order to run AnalyzeCopy you must install:
 Optional tools, if found they are used for testing:
 
  3. osxutils, http://osxutils.sourceforge.net/
- 4. xbup, http://www.shoup.net/xbup/
+ 4. xattr, http://xattr.sourceforge.net/
+ 5. xbup, http://www.shoup.net/xbup/
 
 
 To build and run:

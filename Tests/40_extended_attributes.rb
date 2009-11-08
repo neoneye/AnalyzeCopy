@@ -1,11 +1,13 @@
 #
-# TODO: are ordering of key|values preserved
 # TODO: exercise with duplicates of the same key
 # TODO: exercise xattr on symlinks
 # TODO: exercise xattr on hardlinks
 # TODO: exercise xattr on pipes|fifos|etc
 #
 
+#
+# depends on http://xattr.sourceforge.net/
+#
 PATH = "/usr/bin/xattr"
 
 def is_installed
