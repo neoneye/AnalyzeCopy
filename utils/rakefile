@@ -1,12 +1,12 @@
 require 'rake/clean'
 
-CLEAN.include('ac_copy', 'ac_setresource', 'bb_hardlink')
-#CLEAN.include('ac_copy', 'ac_setresource', 'bb_hardlink', 'ac_getmode')
+CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'bb_hardlink')
+#CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'bb_hardlink', 'ac_getmode')
 CLOBBER.include('*.o')
 
 
-task :default => ["ac_copy", "ac_setresource", "bb_hardlink"]
-#task :default => ["ac_copy", "ac_setresource", "bb_hardlink", "ac_getmode"]
+task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'bb_hardlink']
+#task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'bb_hardlink', 'ac_getmode']
 
 SRC = FileList['*.m', '*.c']
 OBJ = SRC.ext('o')
@@ -23,6 +23,11 @@ OBJ_COPY = ['ac_copy.o']
 file "ac_copy" => OBJ_COPY do
   ENV["LINK"] = "/System/Library/Frameworks/Foundation.framework/Foundation"
   sh "gcc -o ac_copy #{OBJ_COPY} -L \"$LINK\""
+end
+
+OBJ_XATTR = ['ac_xattr.o']  
+file "ac_xattr" => OBJ_XATTR do
+  sh "gcc -o ac_xattr #{OBJ_XATTR}"
 end
 
 #OBJ_GETMODE = ['ac_getmode.o']  
@@ -44,6 +49,7 @@ end
 
 # File dependencies go here ...
 file 'ac_copy.o' => ['ac_copy.m']
+file 'ac_xattr.o' => ['ac_xattr.c']      
 file 'ac_setresource.o' => ['ac_setresource.m']
 #file 'ac_getmode.o' => ['ac_getmode.c']
 file 'bb_hardlink.o' => ['bb_hardlink.c']

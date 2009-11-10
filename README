@@ -73,6 +73,8 @@ IDEA: mode_t for symlinks: chmod -h 660 mysymlink
 
 IDEA: symlinks can have different timestamp than files
 
+IDEA: xattr on symlinks
+
 IDEA: test with difficult filenames
 
 IDEA: "no resource fork" != "has zero-size resource fork"

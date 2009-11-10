@@ -14,6 +14,9 @@ copied and that the order is preserved.
 Added 22_lutimes.rb to exercise if timestamps are preserved for
 symlinks.
 
+Added 42_xattr_symlink that exercises XATTR_NOFOLLOW on symlinks.
+
+
 0.9.0
 
 First public release of AnalyzeCopy.
