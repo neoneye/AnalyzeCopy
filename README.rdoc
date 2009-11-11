@@ -1,10 +1,11 @@
 = AnalyzeCopy
 
-lorem ipsum
+Torture-testing of File managers and programs that copy files on Mac OS X. 
+
 
 == DESCRIPTION
 
-lorem ipsum
+A lot of programs have difficulties copying files.
 
 
 == FEATURES
@@ -17,7 +18,15 @@ lorem ipsum
 lorem ipsum
 
 
-**AnalyzeCopy** - black box validation suite for copying files
+== AUTHOR
+
+Simon Strandgaard
+* mailto:simon@opcoders.com
+
+
+
+
+AnalyzeCopy - black box validation suite for copying files
 copyright 2009 - Simon Strandgaard
 
 project name:
