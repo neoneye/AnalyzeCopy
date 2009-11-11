@@ -1,17 +1,18 @@
-DESCRIPTION
-===========
+= AnalyzeCopy
+
+lorem ipsum
+
+== DESCRIPTION
 
 lorem ipsum
 
 
-FEATURES
-========
+== FEATURES
 
 lorem ipsum
 
 
-INSTALL
-=======
+== INSTALL
 
 lorem ipsum
 
