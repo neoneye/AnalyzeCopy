@@ -1,6 +1,6 @@
 = AnalyzeCopy
 
-Torture-testing of File managers and programs that copy files on Mac OS X. 
+Torture-testing of File managers and programs that copy files on Mac OS X.  Things you ought to know but probably would rather not.
 
 
 == DESCRIPTION
@@ -10,7 +10,7 @@ A lot of programs have difficulties copying files.
 
 == FEATURES
 
-lorem ipsum
+This program generates a HTML comparison table.
 
 
 == INSTALL
