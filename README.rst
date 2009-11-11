@@ -1,4 +1,22 @@
-AnalyzeCopy - black box validation suite for copying files
+DESCRIPTION
+===========
+
+lorem ipsum
+
+
+FEATURES
+========
+
+lorem ipsum
+
+
+INSTALL
+=======
+
+lorem ipsum
+
+
+**AnalyzeCopy** - black box validation suite for copying files
 copyright 2009 - Simon Strandgaard
 
 project name:
