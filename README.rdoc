@@ -3,9 +3,23 @@
 Torture-testing of File managers and programs that copy files on Mac OS X.  Things you ought to know but probably would rather not.
 
 
-== DESCRIPTION
+== Introduction
 
 A lot of programs have difficulties copying files.
+
+Things to consider when copying files are:
+  (1) Data Fork
+  (2) Resource Fork
+  (3) Permissions
+  (4) Time Stamps
+  (5) BSD Flags
+  (6) Finder Flags
+  (7) Extended Attributes
+  (8) Access Control Lists
+  (9) Hardlinks / Symlinks
+ (10) Special file types
+
+Because there are so many things, it's really no surprise that it's causing problems for untested programs.
 
 
 == FEATURES
