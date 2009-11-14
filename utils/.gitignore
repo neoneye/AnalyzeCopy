@@ -3,5 +3,6 @@ ac_getmode
 ac_setresource
 ac_mkalias
 ac_xattr
+ac_bkuptime
 bb_hardlink
 *.o

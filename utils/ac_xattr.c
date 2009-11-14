@@ -27,7 +27,7 @@ void print_help() {
 	printf("  Option -w means it should write one xattr entry.\n");
 	printf("  Option -d means it should delete one xattr entry.\n");
 	printf("  Option -h prints this help.\n");
-	printf("  Option -h prints the version info.\n");
+	printf("  Option -v prints the version info.\n");
 }
 
 

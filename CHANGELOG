@@ -16,6 +16,7 @@ symlinks.
 
 Added 42_xattr_symlink that exercises XATTR_NOFOLLOW on symlinks.
 
+Added ac_bkuptime util so that we soon can test ATTR_CMN_BKUPTIME.
 
 0.9.0
 
