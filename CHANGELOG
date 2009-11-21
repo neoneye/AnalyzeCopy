@@ -20,6 +20,8 @@ Added ac_bkuptime util so that we soon can test ATTR_CMN_BKUPTIME.
 
 Added 23_bkuptime.rb that tests ATTR_CMN_BKUPTIME.
 
+Added 73_symlink_permissions.rb that tests permissions on symlinks.
+
 0.9.0
 
 First public release of AnalyzeCopy.

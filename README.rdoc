@@ -111,8 +111,6 @@ IDEA: exercise mode_t for mkfifo
 
 IDEA: exercise mode_t for mknod
 
-IDEA: mode_t for symlinks: chmod -h 660 mysymlink
-
 IDEA: symlinks can have different timestamp than files
 
 IDEA: xattr on symlinks
