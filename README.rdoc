@@ -119,6 +119,8 @@ IDEA: xattr on symlinks
 
 IDEA: test with difficult filenames
 
+IDEA: test with alias cycles
+
 IDEA: "no resource fork" != "has zero-size resource fork"
 exercise this
 
