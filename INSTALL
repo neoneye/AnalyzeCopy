@@ -46,3 +46,38 @@ You will be prompted for "sudo" password, since some
 of the tests requires root.
 
 
+==== ANALYZECOPY WITH THE FINDER ====
+
+ 1. Open a new Finder window 
+ 2. Go to the AnalyzeCopySource volume
+ 3. Change dir to "group0"
+
+ 4. Open another Finder window
+ 5. Go to the AnalyzeCopyDest volume
+ 6. Change dir to "40_finder"
+ 7. Change dir to "result"
+
+ 8. Drag n drop all files in the source dir to the target dir.
+    Finder will ask you for your password
+
+ 9. Run:  rake vh
+    This will rebuild the index.html file that shows the comparison result.
+
+
+==== ANALYZECOPY WITH muCommander ====
+
+ 1. In left pane, change dir to: /Volumes/AnalyzeCopySource/group0/
+ 2. In right pane, change dir to: /Volumes/AnalyzeCopyDest/41_mucommander/result/
+ 3. In left pane select all files
+
+ 4. Hit F5 to copy, choose overwrite file.
+    muCommander hangs with some of the dirs, so when you see it's hanging
+    then just cancel the copy, deselect the file, and copy the remaining items.
+
+ 5. Run:  rake vh
+    This will rebuild the index.html file that shows the comparison result.
+
+
+
+
+

@@ -3,11 +3,11 @@ def is_installed
 end
 
 def version
-  "0.8.4"
+  "0.8.5"
 end
 
 def print_full_version
-  puts "0.8.4"
+  puts "0.8.5"
 end
 
 def copy_data(source_dir, dest_dir)
