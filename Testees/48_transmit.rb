@@ -1,17 +1,13 @@
-def ignore_tests
-  %w(10_permissions)
-end
-
 def is_installed
   true
 end
 
 def version
-  "2.0 Beta 1 (20)"
+  "4.0.2"
 end
 
 def print_full_version
-  puts "2.0 Beta 1 (20)"
+  puts "4.0.2"
 end
 
 def copy_data(source_dir, dest_dir)
@@ -19,7 +15,7 @@ def copy_data(source_dir, dest_dir)
   s = <<CMD
 mkdir "$DEST_DIR"
 cd "$DEST_DIR"
-echo "You must interactively copy the files using ForkLift" >> README.txt
+echo "You must interactively copy the files using Panic's Transmit file manager" >> README.txt
 CMD
   puts s
   puts "------------"
