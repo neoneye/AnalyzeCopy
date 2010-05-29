@@ -6,20 +6,39 @@ AnalyzeCopy - black box validation suite for copying files
 In order to run AnalyzeCopy you must install:
 
  1. Ruby
- 2. Rake
+
+ 2. Rake, http://rake.rubyforge.org/
+    can usually be installed by with this command: gem install --remote rake
+
+ 3. Python
+
+ 4. Perl
+
+ 5. osxutils (version 1.7), http://osxutils.sourceforge.net/
+
+ 6. xbup (version 2.0), http://www.shoup.net/xbup/
+    installation procedure for xbup can be found on page 6 in it's doc.pdf.
+    if you just do a make, make install, then it will install itself in ~/bin
+
+ 7. sudo perl -MCPAN -e 'install File::Copy::Recursive'
 
 
-Optional tools, if found they are used for testing:
 
- 3. osxutils, http://osxutils.sourceforge.net/
- 4. xbup, http://www.shoup.net/xbup/
-
-
-To build and run:
+Now compile AnalyzeCopy:
 
 prompt> cd utils
+prompt> pwd
+/Users/johndoe/code/AnalyzeCopy/utils
 prompt> rake
-prompt> cd ..
+prompt>
+
+AnalyzeCopy is now ready to be used.
+
+
+==== USING ANALYZECOPY ====
+
+prompt> pwd
+/Users/johndoe/code/AnalyzeCopy
 prompt> rake
 prompt>
 
