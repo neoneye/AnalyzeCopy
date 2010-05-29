@@ -1,4 +1,15 @@
-0.9.x
+2010-05-29
+
+Made AnalyzeCopy work on Mac OS X 10.6.
+Rsync is having difficulties with many of the exercises for some
+reason. Had to disable some exercises so it now again can complete.
+
+Updated INSTALL document with more info on how to install, since
+I didn't understood my own install procedure.
+
+
+
+2009-11-21
 
 Added 62_hardlink_fifo.rb which "ditto", "tar", "pax" doesn't like.
 
@@ -24,6 +35,8 @@ Added 73_symlink_permissions.rb that tests permissions on symlinks.
 
 Added 74_symlink_hidden.rb that tests hidden flag on symlinks.
 
-0.9.0
+
+
+2009-11-02
 
 First public release of AnalyzeCopy.
