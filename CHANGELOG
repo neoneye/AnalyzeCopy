@@ -1,3 +1,9 @@
+2010-07-26
+
+Added 01_ascii_names.rb which is causing trouble for ditto, tar, rsync, zip, xar.
+
+
+
 2010-07-25
 
 Added 24_before_unix_epoch.rb which only NSFileManager, cpio and xar likes.

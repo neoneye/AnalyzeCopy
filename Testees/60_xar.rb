@@ -4,6 +4,10 @@ def is_installed
   File.exists?(PATH)
 end
 
+def ignore_tests
+  %w(01_ascii_names)
+end
+
 def version
   `#{PATH} --version`.strip
 end
