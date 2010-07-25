@@ -1,3 +1,9 @@
+2010-07-25
+
+Added 24_before_unix_epoch.rb which only NSFileManager, cpio and xar likes.
+
+
+
 2010-05-29
 
 Made AnalyzeCopy work on Mac OS X 10.6.
