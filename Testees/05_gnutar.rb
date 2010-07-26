@@ -1,12 +1,12 @@
-# BSD tar
-PATH = "/usr/bin/tar"
+# GNU tar
+PATH = "/usr/bin/gnutar"
 
 def is_installed
   File.exists?(PATH)
 end
 
 def version
-  `#{PATH} --version`.strip
+  `#{PATH} --version`.grep(/GNU tar/)[0].strip
 end
 
 def print_full_version
