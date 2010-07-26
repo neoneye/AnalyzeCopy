@@ -4,6 +4,8 @@ Added 01_ascii_names.rb which is causing trouble for ditto, tar, rsync, zip, xar
 
 Added 71_rar_unrar.rb that exercises Rar and Unrar.
 
+Added 72_7zip.rb that exercises 7-zip.
+
 
 
 2010-07-25
