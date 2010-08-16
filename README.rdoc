@@ -126,6 +126,8 @@ exercise this
 
 IDEA: copy dirs using Java's file api, what ever that is
 
+IDEA: test XATTR_SHOWCOMPRESSION with listxattr
+
 ==================================================================
 
 ------ stat.atime --------
