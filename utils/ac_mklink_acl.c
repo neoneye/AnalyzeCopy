@@ -4,7 +4,7 @@ Copyright (c) 2010 - opcoders.com
 Simon Strandgaard <simon@opcoders.com>
 
 
-Credit to Cédric Luthi for discovered that ACL's aren't copied for symlinks, 
+Credit to Cédric Luthi for discovering that ACL's aren't copied for symlinks, 
 and he figured out that it IS possible by using acl_set_fd_np()
 http://0xced.blogspot.com/2009/03/chmod-acl-and-symbolic-links_23.html
 
@@ -61,7 +61,7 @@ void assign_acl_to_symlink(const char* path) {
 
 	acl_permset_t pset;
 	acl_get_permset(entry, &pset);
-    acl_clear_perms(pset);
+	acl_clear_perms(pset);
 	acl_add_perm(pset, ACL_READ_DATA);
 	int i;
 	for(i=0; i<32; ++i) {
