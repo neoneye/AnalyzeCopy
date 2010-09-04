@@ -1,11 +1,11 @@
 require 'rake/clean'
 
-CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink')
+CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'ac_mklink_acl', 'bb_hardlink')
 #CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink', 'ac_getmode')
 CLOBBER.include('*.o')
 
 
-task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink']
+task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'ac_mklink_acl', 'bb_hardlink']
 #task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink', 'ac_getmode']
 
 SRC = FileList['*.m', '*.c']
@@ -21,8 +21,7 @@ end
 
 OBJ_COPY = ['ac_copy.o']  
 file "ac_copy" => OBJ_COPY do
-  ENV["LINK"] = "/System/Library/Frameworks/Foundation.framework/Foundation"
-  sh "gcc -o ac_copy #{OBJ_COPY} -L \"$LINK\""
+  sh "gcc -o ac_copy #{OBJ_COPY} -framework CoreFoundation -framework Foundation"
 end
 
 OBJ_XATTR = ['ac_xattr.o']  
@@ -35,6 +34,11 @@ file "ac_bkuptime" => OBJ_BKUPTIME do
   sh "gcc -o ac_bkuptime #{OBJ_BKUPTIME}"
 end
 
+OBJ_MKLINK_ACL = ['ac_mklink_acl.o']  
+file "ac_mklink_acl" => OBJ_MKLINK_ACL do
+  sh "gcc -o ac_mklink_acl #{OBJ_MKLINK_ACL}"
+end
+
 #OBJ_GETMODE = ['ac_getmode.o']  
 #file "ac_getmode" => OBJ_GETMODE do
 #  sh "gcc -o ac_getmode #{OBJ_GETMODE}"
@@ -42,9 +46,7 @@ end
 
 OBJ_SETRES = ['ac_setresource.o']  
 file "ac_setresource" => OBJ_SETRES do
-  ENV["LINK1"] = "/System/Library/Frameworks/Foundation.framework/Foundation"
-  ENV["LINK2"] = "/System/Library/Frameworks/CoreServices.framework/CoreServices"
-  sh "gcc -o ac_setresource #{OBJ_SETRES} -L \"$LINK1\" \"$LINK2\""
+  sh "gcc -o ac_setresource #{OBJ_SETRES} -framework CoreFoundation -framework Foundation -framework CoreServices"
 end
   
 OBJ_HARDLINK = ['bb_hardlink.o']  
@@ -57,5 +59,6 @@ file 'ac_copy.o' => ['ac_copy.m']
 file 'ac_xattr.o' => ['ac_xattr.c']      
 file 'ac_bkuptime.o' => ['ac_bkuptime.c']      
 file 'ac_setresource.o' => ['ac_setresource.m']
+file 'ac_mklink_acl.o' => ['ac_mklink_acl.c']
 #file 'ac_getmode.o' => ['ac_getmode.c']
 file 'bb_hardlink.o' => ['bb_hardlink.c']

@@ -4,5 +4,6 @@ ac_setresource
 ac_mkalias
 ac_xattr
 ac_bkuptime
+ac_mklink_acl
 bb_hardlink
 *.o

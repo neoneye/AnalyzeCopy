@@ -1,3 +1,9 @@
+2010-09-05
+
+Added 75_symlink_acl.rb that exercises ACL's on symlinks.
+
+
+
 2010-07-26
 
 Added 01_ascii_names.rb which is causing trouble for ditto, tar, rsync, zip, xar.
