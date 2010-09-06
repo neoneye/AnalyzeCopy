@@ -97,8 +97,6 @@ resource fork support.
 
 IDEA: chgrp, chown
 
-IDEA: backup date
-
 IDEA: label color
 
 IDEA: Finder vs. attached comments
@@ -128,9 +126,9 @@ IDEA: test XATTR_SHOWCOMPRESSION with listxattr
 
 IDEA: test Apple's copyfile() function introduced in 10.5.
 
-==================================================================
+------------------------------------------------------------
 
------- stat.atime --------
+==== stat.atime
 
 We could create a read-only volume and copy data from it.
 After the copy operation is completed then remount the
@@ -138,14 +136,17 @@ target volume as read-only... and then compare atime.
 However it's not worth it.
 
 
------- stat.ctime --------
+==== stat.ctime
 
-stat.ctime is updated when the inode is changed, by the 
-filesystem. It's not a user settable property.
+stat.ctime is updated when the inode is changed, by the filesystem. It's not a user settable property.
 So I don't think its possible to test it.
 
+Does kFSCatInfoAttrMod and FSSetCatalogInfo() work - by John C. Daub
+Conclusion: no, it doesn't work.
+http://lists.apple.com/archives/carbon-dev/2007/Aug/msg00338.html
 
------- cloaked files (inode 0) --------
+
+==== cloaked files (inode 0)
 
 In the apple filesystem there are some files with inode 0, making
 them invisible for most tools. 
