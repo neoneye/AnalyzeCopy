@@ -117,7 +117,7 @@ class CSVResults
 
   def write(filename)
     File.open(filename, "w+") do |f| 
-      CSV::Writer.generate(f, ',') do |csv|
+      CSV::Writer.generate(f, ';') do |csv|
         @csv_result_rows.each do |row|
           csv << row
         end

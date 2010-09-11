@@ -1,5 +1,6 @@
 require "runner"
 require "formatter"
+require "formatter2"
 require "save_results_as_csv"
 
 
@@ -273,6 +274,34 @@ task :html do
   `open index.html`
 end
 
+desc "Generate an index.html report"
+task :html2 do
+  dest_dir = "/Volumes/AnalyzeCopyDest"
+
+  r = Runner.instance
+  r.check(dest_dir)
+  
+  
+  ary_tests = []
+  r.tests.each_with_index do |test, test_index|  
+    name = test.class::NAME.dup
+    ary_tests << {
+      :name => name,
+      :ident => name.match(/^\d+/).to_s,
+      :prettyname => name.sub(/^\d+_/, ''),
+      :is_installed => r.tests_installed[test_index]
+    }
+  end
+
+
+  f = Formatter2.new
+  f.system_version = obtain_system_version
+  f.run(ary_tests)
+  f.write("index.html")
+
+  `open index.html`
+end
+
 task :h => :html
 
 task :sudo do
@@ -282,6 +311,9 @@ end
 
 desc "Verify and generate Html"
 task :vh => [:sudo, :verify, :html]
+
+desc "Verify and generate CSV and them format as Html"
+task :vh2 => [:sudo, :verify, :csv, :html2]
 
 
 task :default => [:sudo, :create_and_mount, :run, :verify, :html]
