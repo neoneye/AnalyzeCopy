@@ -45,6 +45,33 @@ module RunnerMisc
     $?.exitstatus
   end
 
+  STATUSES = {
+    :not_installed => {
+      :short => "1",
+      :desc => "Either test or testee is not installed"
+    },
+    :missing_testee_result_dir => {
+      :short => "2",
+      :desc => "Testee didn't create any result dir"
+    },
+    :missing_test_dir => {
+      :short => "3",
+      :desc => "Testee didn't generate any test dir"
+    },
+    :missing_results_yaml => {
+      :short => "4",
+      :desc => "could not read results.yaml from the testees dir"
+    },
+    :no_data_for_this_test => {
+      :short => "5",
+      :desc => "no data for this test in the results.yaml file"
+    },
+    :bad_data_for_this_test => {
+      :short => "6",
+      :desc => "bad data for this test"
+    }
+  }
+
 end # module RunnerMisc
 
 

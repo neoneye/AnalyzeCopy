@@ -3,6 +3,8 @@
 # copyright 2009 - Simon Strandgaard
 #
 #
+require "runner"
+
 module FormatterMisc
 
   def td(s, html_attr='')
@@ -16,33 +18,6 @@ module FormatterMisc
   def tr(s, html_attr='')
     "<tr#{html_attr}>#{s}</tr>"
   end
-
-  STATUSES = {
-    :not_installed => {
-      :short => "1",
-      :desc => "Either test or testee is not installed"
-    },
-    :missing_testee_result_dir => {
-      :short => "2",
-      :desc => "Testee didn't create any result dir"
-    },
-    :missing_test_dir => {
-      :short => "3",
-      :desc => "Testee didn't generate any test dir"
-    },
-    :missing_results_yaml => {
-      :short => "4",
-      :desc => "could not read results.yaml from the testees dir"
-    },
-    :no_data_for_this_test => {
-      :short => "5",
-      :desc => "no data for this test in the results.yaml file"
-    },
-    :bad_data_for_this_test => {
-      :short => "6",
-      :desc => "bad data for this test"
-    }
-  }
 
   HTML_TEMPLATE =<<HTMLDOC
 <html>
@@ -164,6 +139,7 @@ end # module FormatterMisc
 
 class Formatter
   include FormatterMisc
+  include RunnerMisc
   
   def initialize
     @system_version = "Mac OS X Version ?"
