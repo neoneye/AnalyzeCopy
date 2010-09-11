@@ -87,6 +87,11 @@ Mission right now:
 
 
 ------------------------------------------------------------
+IDEA: generate a CSV file with the results
+
+IDEA: take a CSV file and format it as pretty HTML.. so that 
+a human can reorder the rows/columns.
+
 IDEA: html report should gather data from the result dirs, 
 such as exitstatus, version, long version, is_ignored.
 
@@ -96,8 +101,6 @@ support also fails the resource fork test, despite having
 resource fork support.
 
 IDEA: chgrp, chown
-
-IDEA: label color
 
 IDEA: Finder vs. attached comments
 
