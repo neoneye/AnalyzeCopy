@@ -27,7 +27,7 @@ class CSVResults
         cells << test[:name]
       end
       # score column
-      cells << "SCORE" 
+      cells << "SCORE%"
       csv_result_rows << cells
     end
 
@@ -65,48 +65,48 @@ class CSVResults
         test_dir = File.join(dest_dir, testee[:name], "result", test_name)
         has_test_dir = FileTest.exist?(test_dir)
 
-        s = "OTHER"
+        s = "unknown"
         case 
         when !is_testee_installed || !is_test_installed
-          s = STATUSES[:not_installed][:short]
+          s = STATUSES[:not_installed][:other]
         when !has_testee_result_dir
-          s = STATUSES[:missing_testee_result_dir][:short]
+          s = STATUSES[:missing_testee_result_dir][:other]
         when !has_test_dir
-          s = STATUSES[:missing_test_dir][:short]
+          s = STATUSES[:missing_test_dir][:other]
         when !testee_results
-          s = STATUSES[:missing_results_yaml][:short]
+          s = STATUSES[:missing_results_yaml][:other]
         when testee_results[test_name] == nil
-          s = STATUSES[:no_data_for_this_test][:short]
+          s = STATUSES[:no_data_for_this_test][:other]
         when testee_results[test_name] == false
-          s = STATUSES[:no_data_for_this_test][:short]
+          s = STATUSES[:no_data_for_this_test][:other]
 =begin
         when !testee_results[test_name].has_key?(:mask)
-          s = STATUSES[:bad_data_for_this_test][:short]
+          s = STATUSES[:bad_data_for_this_test][:other]
         when !testee_results[test_name][:mask].kind_of?(Fixnum)
-          s = STATUSES[:bad_data_for_this_test][:short]
+          s = STATUSES[:bad_data_for_this_test][:other]
         when testee_results[test_name][:mask] > 0
           mask = testee_results[test_name][:mask]
           s = "<b>FAIL</b><br/>" + mask.to_s(2)
           html_attr = " class='fail datacell'"
 =end
         when !testee_results[test_name].has_key?(:errors)
-          s = STATUSES[:bad_data_for_this_test][:short]
+          s = STATUSES[:bad_data_for_this_test][:other]
         when !testee_results[test_name][:errors].kind_of?(Array)
-          s = STATUSES[:bad_data_for_this_test][:short]
+          s = STATUSES[:bad_data_for_this_test][:other]
         when testee_results[test_name][:errors].size > 0
           errors = testee_results[test_name][:errors]
           s = "FAIL " + errors.join()
         else
-          s = "PASS"
+          s = "OK"
           n_pass += 1
         end
 
         cells << s
       end
       begin
-        score = '0 %'
+        score = '0'
         if n >= 1
-          score = (n_pass.to_f * 100.0 / n.to_f).to_i.to_s + '%'
+          score = (n_pass.to_f * 100.0 / n.to_f).to_i.to_s
         end
         cells << score
       end
