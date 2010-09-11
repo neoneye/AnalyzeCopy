@@ -2,7 +2,7 @@ PATH_PYTHON = "/usr/bin/python"
 PATH_COPY = File.join(Dir.pwd, "scripts", "ac_python_copy.py")
 
 def ignore_tests
-  %w(71_symlink_cycle 80_fifo 62_hardlink_fifo)
+  %w(12_symlink_cycle 61_fifo 81_hardlink_fifo)
 end
 
 def is_installed

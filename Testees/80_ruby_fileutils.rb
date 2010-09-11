@@ -1,7 +1,7 @@
 PATH = "/usr/bin/ruby"
 
 def ignore_tests
-  %w(10_permissions 12_ownership 14_uchg 15_access_control_list 71_symlink_cycle 80_fifo 81_char 82_block 62_hardlink_fifo)
+  %w(01_permissions 02_symlink_broken 03_symlink_basic 12_symlink_cycle 22_access_control_list 23_ownership 31_uchg 52_char 53_block 61_fifo 81_hardlink_fifo)
 end
 
 def is_installed

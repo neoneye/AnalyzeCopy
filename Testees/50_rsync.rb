@@ -7,7 +7,7 @@ PATH = "/usr/bin/rsync"
 # oddly enough, on Mac OS X 10.5.8 there was no hangs.
 #
 def ignore_tests
-  %w(60_hardlink_file 61_hardlink_dir 62_hardlink_fifo 74_symlink_hidden 80_fifo 81_char 82_block 90_alias 91_comment)
+  %w(50_hardlink_file 90_hardlink_dir 81_hardlink_fifo 41_symlink_hidden 61_fifo 52_char 53_block 60_alias 11_comment)
 end
 
 def is_installed

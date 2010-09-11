@@ -225,7 +225,7 @@ class Formatter2
         s1 = column[index]
         if s1 =~ /^OK$/i
           sortkey = "%i%03i%03i" % [4, 0, score]
-          cells << td(s1, " class='pass datacell' sorttable_customkey='#{sortkey}'")
+          cells << td('&nbsp;', " class='pass datacell' sorttable_customkey='#{sortkey}'")
         elsif s1 =~ /^FAIL (.*)$/i
           n = 99 - s1.size
           sortkey = "%i%03i%03i" % [3, n, score]

@@ -1,5 +1,5 @@
 def ignore_tests
-  %w(10_permissions)
+  %w(01_permissions)
 end
 
 def is_installed

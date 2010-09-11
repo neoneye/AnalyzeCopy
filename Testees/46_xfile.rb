@@ -1,5 +1,5 @@
 def ignore_tests
-  %w(62_hardlink_fifo 80_fifo 81_char 82_block)
+  %w(81_hardlink_fifo 61_fifo 52_char 53_block)
 end
 
 def is_installed
