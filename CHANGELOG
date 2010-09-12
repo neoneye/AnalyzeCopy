@@ -1,3 +1,9 @@
+2010-09-12
+
+The results are now stored in a CSV file, that is afterwards being pretty printed as HTML.
+The HTML table can be reordered by clicking in the table header cells.
+
+
 2010-09-05
 
 Added 75_symlink_acl.rb that exercises ACL's on symlinks.
