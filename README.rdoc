@@ -29,7 +29,34 @@ This program generates a HTML comparison table.
 
 == INSTALL
 
-lorem ipsum
+Requirements:
+  ruby 1.8.x or better.
+  rake
+
+
+== USAGE
+
+step 1:
+prompt> rake
+
+step 2:
+type in your password when asked for password 
+
+step 3:
+wait a few minutes
+
+step 4:
+the generated index.html file is opened in your browser
+
+step 5:
+Ignore this step if you want to run the test multiple times.
+prompt> rake unmount
+prompt> rm AnalyzeCopySource.sparseimage 
+remove AnalyzeCopySource.sparseimage? y
+prompt> rm AnalyzeCopyDest.sparseimage 
+remove AnalyzeCopyDest.sparseimage? y
+prompt>
+
 
 
 == AUTHOR

@@ -1,3 +1,10 @@
+=begin
+
+Tim Kientzle: I would suggest you split this into a separate test, since this is related to an Apple convention for using "._" as a special file prefix.
+Simon Strandgaard: Thank you. I have created a new test for "._"
+
+=end
+
 def is_installed
   true
 end
@@ -19,7 +26,6 @@ NAMES = [
   ",",  # comma
   "-",  # minus
   ".*", # period asterisk
-  "._", # period underscore
   # NOTE: forward slash is cannot be used in filenames, so we don't test it
   ":",  # colon
   ";",  # semicolon

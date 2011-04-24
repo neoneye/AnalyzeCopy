@@ -103,7 +103,7 @@ table.statustable {
 </style>
 </head>
 <body>
-<h1>Analyze Copy - Copyright 2009-2010 Simon Strandgaard &lt;simon@opcoders.com&gt;</h1>
+<h1>Analyze Copy - Copyright 2009-2011 Simon Strandgaard &lt;simon@opcoders.com&gt;</h1>
 <pre>INSERT_SYSVERSION</pre>
 
 <div class="leftside"

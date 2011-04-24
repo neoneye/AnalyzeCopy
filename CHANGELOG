@@ -1,3 +1,8 @@
+2011-04-24
+
+Tim Kientzle suggested splitting the 30_ascii_names.rb test into a separate "._" test.
+
+
 2010-09-12
 
 The results are now stored in a CSV file, that is afterwards being pretty printed as HTML.

@@ -302,7 +302,7 @@ task :html2 do
   `open index.html`
 end
 
-task :h => :html
+task :h => :html2
 
 task :sudo do
   puts "this script must run as root"
@@ -310,10 +310,11 @@ task :sudo do
 end
 
 desc "Verify and generate Html"
-task :vh => [:sudo, :verify, :html]
+task :vh_old => [:sudo, :verify, :html]
 
 desc "Verify and generate CSV and them format as Html"
-task :vh2 => [:sudo, :verify, :csv, :html2]
+task :vh => [:sudo, :verify, :csv, :html2]
 
 
-task :default => [:sudo, :create_and_mount, :run, :verify, :html]
+desc "Run all tests. You can ignore all the other commands. This is the primary way to run the tests."
+task :default => [:sudo, :create_and_mount, :run, :verify, :csv, :html2]

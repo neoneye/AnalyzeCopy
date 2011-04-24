@@ -1,3 +1,12 @@
+=begin
+
+Latest version of tar can be found here
+http://code.google.com/p/libarchive/
+
+Tim Kientzle: For portability reasons, tar does not archive "birthtime" attributes in the default format.  Adding --format=pax to the tar command line when creating the archive fixes this.
+
+=end
+
 # BSD tar
 PATH = "/usr/bin/tar"
 
