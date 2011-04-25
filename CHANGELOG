@@ -1,3 +1,8 @@
+2011-04-26
+
+Tim Kientzle suggested --format=pax in the test of bsdtar. Now bsdtar passes 85% of the tests!
+
+
 2011-04-24
 
 Tim Kientzle suggested splitting the 30_ascii_names.rb test into a separate "._" test.

@@ -29,7 +29,7 @@ def copy_data(source_dir, dest_dir)
   s = <<CMD
 mkdir "$DEST_DIR"
 cd "$SOURCE_DIR"
-sudo #{PATH} cvpf - . | (cd "$DEST_DIR"; sudo #{PATH} xvpf -)
+sudo #{PATH} cvpf - --format=pax . | (cd "$DEST_DIR"; sudo #{PATH} xvpf -)
 CMD
   puts s
   puts "------------"
