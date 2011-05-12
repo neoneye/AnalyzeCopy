@@ -1,1 +1,6 @@
 *.sparseimage
+build
+*.mode1v3
+*.pbxuser
+*.beam
+.DS_Store
