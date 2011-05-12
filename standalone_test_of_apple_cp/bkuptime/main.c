@@ -4,7 +4,7 @@ Copyright (c) 2011 - opcoders.com
 Simon Strandgaard <simon@opcoders.com>
 
 if bkuptime on files are preserved then this test should output
-TEST SUCCESS: birthtime is copied correct, birthtime is the same
+TEST SUCCESS: bkuptime is copied correct, bkuptime is the same
 
 however this test fails on my Mac OS X 10.6.6 (10J567) and outputs
 TEST FAILED: bkuptime on myfile differs
