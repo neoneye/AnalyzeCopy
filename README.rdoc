@@ -1,22 +1,24 @@
 = AnalyzeCopy
 
-Torture-testing of File managers and programs that copy files on Mac OS X.  Things you ought to know but probably would rather not.
+Backup and restore should not be a lossy process. Do the right thing!
+
+Test, test and test again.
+
+This project is about evil torture-testing of backup tools/file utils on Mac OS X. 
 
 
 == Introduction
 
-A lot of programs have difficulties copying files.
-
-Things to consider when copying files are:
+There are many things to consider when copying files. 
 1. Data Fork
 2. Resource Fork
-3. Permissions
-4. Time Stamps
-5. BSD Flags
-6. Finder Flags
-7. Extended Attributes
-8. Access Control Lists
-9. Hardlinks / Symlinks
+3. Permission
+4. Time Stamp
+5. BSD Flag
+6. Finder Flag
+7. Extended Attribute
+8. Access Control List
+9. Hardlink / Symlink / Alias
 10. Special file types
 
 Because there are so many things, it's really no surprise that it's causing problems for untested programs.
@@ -142,12 +144,25 @@ IDEA: test with difficult filenames
 
 IDEA: test with alias cycles
 
+IDEA: more throughout testing of acls
+
+IDEA: more throughout testing of locked files
+
+IDEA: test setuid bit
+
+IDEA: test setgid bit
+
+IDEA: test chflags uappnd,uchg,nodump,opaque
+
 IDEA: "no resource fork" != "has zero-size resource fork"
 exercise this
 
 IDEA: copy dirs using Java's file api, what ever that is
 
-IDEA: test XATTR_SHOWCOMPRESSION with listxattr
+IDEA: test HFS compression.. XATTR_SHOWCOMPRESSION with listxattr
+Inspiration here, in 75-hfs-compression.test and 76-hfs-compression_large.test
+http://www.bombich.com/groups/ccc/wiki/7ba51/
+
 
 IDEA: test Apple's copyfile() function introduced in 10.5.
 
