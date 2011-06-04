@@ -166,6 +166,10 @@ http://www.bombich.com/groups/ccc/wiki/7ba51/
 
 IDEA: test Apple's copyfile() function introduced in 10.5.
 
+IDEA: currently the copy operations takes place between two DMGs.
+I'm considering changing it so there is a dedicated source.dmg per testee,
+this would make it more easy to see what tests has been disabled per testee.
+
 ------------------------------------------------------------
 
 ==== stat.atime
