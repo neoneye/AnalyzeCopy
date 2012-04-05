@@ -4,6 +4,10 @@ def name
   'muCommander'
 end
 
+def ignore_tests
+  %w(61_fifo 81_hardlink_fifo)
+end
+
 def is_installed
   Dir.exists?(PATH_MUCOMMANDER)
 end

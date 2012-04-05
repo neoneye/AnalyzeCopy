@@ -4,6 +4,10 @@ def name
   'Transmit'
 end
 
+def ignore_tests
+  %w(01_permissions)
+end
+
 def is_installed
   Dir.exists?(PATH_TRANSMIT)
 end
