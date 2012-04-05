@@ -18,6 +18,10 @@ class TesteeBase
   def version
     "sometool 6.6.6"
   end
+
+  def installation_status
+    is_installed ? version : "NOT INSTALLED"
+  end
   
   # invoke the programs and let them print their 
   # version info to stdout/stderr 

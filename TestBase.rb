@@ -14,6 +14,10 @@ class TestBase
   def version
     "sometool 6.6.6"
   end
+  
+  def installation_status
+    is_installed ? version : "NOT INSTALLED"
+  end
 
   # generate testdata in the current dir. This function usually
   # invokes mkdir and touch followed by chmod/chown/SetFile

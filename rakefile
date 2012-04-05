@@ -11,54 +11,25 @@ def obtain_system_version
 end
 
 
-
-desc "Display content of the tests and testees dirs"
-task :list_dirs do
-  r = Runner.instance
-  puts "--------- TESTS ---------"
-  r.test_names.each {|s| puts "   #{s}" }
-  puts
-  puts "--------- TESTEES ---------"
-  r.testee_names.each {|s| puts "   #{s}" }
-  puts
+desc "Show overview of all tests"
+task :tests do
+  Runner.instance.tests.each do |t| 
+    name = t.class::NAME
+    info = t.installation_status
+    puts("%-40s %s" % [name, info])
+  end
 end
 
-desc "Display version info for all testees"
-task :list_versions do
-
-  puts "--------- SYSTEM ---------"
-  puts("   %-20s %s" % ["platform", obtain_system_version])
-  puts
-  
-  r = Runner.instance
-  puts "--------- TESTS ---------"
-  r.tests.each do |t| 
+desc "Show overview of all testees"
+task :testees do
+  Runner.instance.testees.each do |t| 
     name = t.class::NAME
-    info = "NOT INSTALLED"
-    if t.is_installed 
-      info = t.version
-    end
-    puts("   %-20s %s" % [name, info])
+    info = t.installation_status
+    puts("%-40s %s" % [name, info])
   end
-  puts
-
-  puts "--------- TESTEES ---------"
-  r.testees.each do |t| 
-    name = t.class::NAME
-    info = "NOT INSTALLED"
-    if t.is_installed 
-      info = t.version
-    end
-    puts("   %-20s %s" % [name, info])
-  end
-  puts
 end
 
-desc "ld is shorthand for list_dirs"
-task :ld => :list_dirs
 
-desc "lv is shorthand for list_versions"
-task :lv => :list_versions
 
 desc "list the ignored tests"
 task :list_ignored do
