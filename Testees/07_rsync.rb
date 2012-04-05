@@ -11,7 +11,7 @@ end
 # oddly enough, on Mac OS X 10.5.8 there was no hangs.
 #
 def ignore_tests
-  %w(50_hardlink_file 90_hardlink_dir 81_hardlink_fifo 41_symlink_hidden 61_fifo 52_char 53_block 60_alias 11_comment)
+  %w(81_hardlink_fifo 61_fifo 52_char)
 end
 
 def is_installed

@@ -9,7 +9,7 @@ def is_installed
 end
 
 def ignore_tests
-  %w(30_ascii_names)
+  %w(06_ascii_names)
 end
 
 def version
