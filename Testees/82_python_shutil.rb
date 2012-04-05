@@ -1,6 +1,10 @@
 PATH_PYTHON = "/usr/bin/python"
 PATH_COPY = File.join(Dir.pwd, "scripts", "ac_python_copy.py")
 
+def name
+  'Python shutil.copytree'
+end
+
 def ignore_tests
   %w(12_symlink_cycle 61_fifo 81_hardlink_fifo)
 end

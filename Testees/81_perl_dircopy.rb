@@ -1,6 +1,10 @@
 PATH_PERL = "/usr/bin/perl"
 PATH_COPY = File.join(Dir.pwd, "scripts", "ac_perl_copy.pl")
 
+def name
+  'Perl File::Copy::Recursive'
+end
+
 def ignore_tests
   %w(61_fifo 81_hardlink_fifo)
 end

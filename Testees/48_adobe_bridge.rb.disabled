@@ -1,3 +1,7 @@
+def name
+  'Adobe Bridge'
+end
+
 def is_installed
   true
 end

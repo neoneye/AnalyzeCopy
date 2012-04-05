@@ -9,6 +9,10 @@
 #
 PATH = "/usr/bin/CpMac"
 
+def name
+  'CpMac'
+end
+
 def is_installed
   File.exists?(PATH)
 end

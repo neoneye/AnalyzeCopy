@@ -8,6 +8,10 @@ pax(1) instead.
 =end
 PATH = "/bin/cp"
 
+def name
+  'cp'
+end
+
 def is_installed
   File.exists?(PATH)
 end

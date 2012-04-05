@@ -1,6 +1,10 @@
 RAR_PATH = File.expand_path("~/bin/rar")
 UNRAR_PATH = File.expand_path("~/bin/unrar")
 
+def name
+  'rar/unrar'
+end
+
 def is_installed
   File.exists?(RAR_PATH) && File.exists?(UNRAR_PATH)
 end

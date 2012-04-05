@@ -1,3 +1,7 @@
+def name
+  'Finder'
+end
+
 def is_installed
   true
 end

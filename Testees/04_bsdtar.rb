@@ -10,6 +10,10 @@ Tim Kientzle: For portability reasons, tar does not archive "birthtime" attribut
 # BSD tar
 PATH = "/usr/bin/tar"
 
+def name
+  'BSD tar'
+end
+
 def is_installed
   File.exists?(PATH)
 end

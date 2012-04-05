@@ -1,6 +1,10 @@
 # GNU tar
 PATH = "/usr/bin/gnutar"
 
+def name
+  'GNU tar'
+end
+
 def is_installed
   File.exists?(PATH)
 end

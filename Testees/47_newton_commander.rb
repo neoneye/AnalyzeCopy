@@ -1,3 +1,7 @@
+def name
+  'Newton Commander'
+end
+
 def is_installed
   true
 end

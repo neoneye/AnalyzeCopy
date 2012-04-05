@@ -1,5 +1,9 @@
 PATH = "/usr/bin/rsync"
 
+def name
+  'rsync'
+end
+
 #
 # on Mac OS X 10.6.3 rsync have started to hang forever in various tests, so I have
 # disabled them in order for AnalyzeCopy to complete.

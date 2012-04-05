@@ -1,5 +1,9 @@
 PATH_FORKLIFT = '/Applications/ForkLift.app'
 
+def name
+  'ForkLift'
+end
+
 def ignore_tests
   %w(01_permissions)
 end

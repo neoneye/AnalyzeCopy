@@ -1,6 +1,10 @@
 PATH_CPIO = "/usr/bin/cpio"
 PATH_FIND = "/usr/bin/find"
 
+def name
+  'cpio'
+end
+
 def is_installed
   File.exists?(PATH_CPIO) && File.exists?(PATH_FIND)
 end

@@ -1,5 +1,9 @@
 PATH = "/bin/pax"
 
+def name
+  'pax'
+end
+
 def is_installed
   File.exists?(PATH)
 end

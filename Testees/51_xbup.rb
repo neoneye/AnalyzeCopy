@@ -6,6 +6,10 @@ PATH_RSYNC = "/usr/bin/rsync"
 PATH_XBUP_SPLIT = File.expand_path("~/bin/splitf_xattr")
 PATH_XBUP_JOIN = File.expand_path("~/bin/joinf_xattr")
 
+def name
+  'xbup'
+end
+
 def is_installed
   File.exists?(PATH_RSYNC) &&
     File.exists?(PATH_XBUP_JOIN) &&

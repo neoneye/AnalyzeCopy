@@ -4,6 +4,10 @@
 #
 PATH = "/opt/local/bin/7za"
 
+def name
+  '7zip'
+end
+
 def is_installed
   File.exists?(PATH)
 end

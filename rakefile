@@ -30,6 +30,15 @@ namespace :info do
     end
   end
 
+  desc "Show pretty names of all the testees"
+  task :testee_names do
+    Runner.instance.testees.each do |t| 
+      name = t.class::NAME
+      info = t.name
+      puts("%40s - %s" % [name, info])
+    end
+  end
+
   desc "Show list testees and which tests they should not be exposed to"
   task :ignored do
     Runner.instance.testees.each do |t| 

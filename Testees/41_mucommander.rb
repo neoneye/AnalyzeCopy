@@ -1,3 +1,7 @@
+def name
+  'muCommander'
+end
+
 def is_installed
   true
 end

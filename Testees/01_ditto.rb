@@ -1,5 +1,9 @@
 PATH = "/usr/bin/ditto"
 
+def name
+  'ditto'
+end
+
 def is_installed
   File.exists?(PATH)
 end

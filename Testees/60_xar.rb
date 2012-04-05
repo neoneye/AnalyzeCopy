@@ -1,5 +1,9 @@
 PATH = "/usr/bin/xar"
 
+def name
+  'xar'
+end
+
 def is_installed
   File.exists?(PATH)
 end

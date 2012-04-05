@@ -1,5 +1,9 @@
 PATH = File.join(Dir.pwd, "utils", "ac_copy")
 
+def name
+  'NSFileManager copyItemAtPath'
+end
+
 def is_installed
   File.exists?(PATH)
 end

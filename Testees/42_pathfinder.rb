@@ -1,3 +1,7 @@
+def name
+  'PathFinder'
+end
+
 def is_installed
   true
 end

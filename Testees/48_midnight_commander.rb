@@ -1,5 +1,9 @@
 PATH = "/opt/local/bin/mc"
 
+def name
+  'Midnight Commander'
+end
+
 def is_installed
   File.exists?(PATH)
 end

@@ -1,5 +1,9 @@
 PATH_TRANSMIT = '/Applications/Transmit.app'
 
+def name
+  'Transmit'
+end
+
 def is_installed
   Dir.exists?(PATH_TRANSMIT)
 end

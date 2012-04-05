@@ -29,6 +29,10 @@ class TesteeBase
     puts version
   end
   
+  def name
+    self.class::NAME
+  end
+  
   # invoke the programs and let them do their job
   # while they print out verbose info to stdout/stderr
   def copy_data(source_dir, dest_dir)

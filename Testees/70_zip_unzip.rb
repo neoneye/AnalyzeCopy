@@ -1,6 +1,10 @@
 ZIP_PATH = "/usr/bin/zip"
 UNZIP_PATH = "/usr/bin/unzip"
 
+def name
+  'zip/unzip'
+end
+
 def ignore_tests
   %w(61_fifo 81_hardlink_fifo)
 end

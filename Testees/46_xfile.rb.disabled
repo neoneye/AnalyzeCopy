@@ -1,5 +1,9 @@
+def name
+  'XFile'
+end
+
 def ignore_tests
-  %w(81_hardlink_fifo 61_fifo)
+  %w(81_hardlink_fifo 61_fifo 52_char 53_block)
 end
 
 def is_installed
@@ -7,11 +11,11 @@ def is_installed
 end
 
 def version
-  "3.0"
+  "2.1.0.6"
 end
 
 def print_full_version
-  puts "3.0"
+  puts "2.1.0.6"
 end
 
 def copy_data(source_dir, dest_dir)
@@ -19,7 +23,7 @@ def copy_data(source_dir, dest_dir)
   s = <<CMD
 mkdir "$DEST_DIR"
 cd "$DEST_DIR"
-echo "You must interactively copy the files using Disk Order" >> README.txt
+echo "You must interactively copy the files using Xfile" >> README.txt
 CMD
   puts s
   puts "------------"
