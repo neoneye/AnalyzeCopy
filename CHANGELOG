@@ -1,3 +1,9 @@
+2012-04-05
+
+Made AnalyzeCopy work on Mac OS X 10.7.
+Upgraded from ruby 1.8.x to ruby 1.9.x.
+
+
 2011-04-26
 
 Tim Kientzle suggested --format=pax in the test of bsdtar. Now bsdtar passes 85% of the tests!
