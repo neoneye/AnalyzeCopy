@@ -7,11 +7,7 @@ def is_installed
 end
 
 def version
-  "10.6.2"
-end
-
-def print_full_version
-  puts "10.6.2"
+  'Part of ' + obtain_system_version
 end
 
 def copy_data(source_dir, dest_dir)

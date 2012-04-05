@@ -18,11 +18,7 @@ def is_installed
 end
 
 def version
-  "versionless"
-end
-
-def print_full_version
-  puts "versionless"
+  'Part of ' + obtain_system_version
 end
 
 def copy_data(source_dir, dest_dir)
