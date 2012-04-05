@@ -1,17 +1,18 @@
+PATH_MUCOMMANDER = '/Applications/muCommander.app'
+
 def name
   'muCommander'
 end
 
 def is_installed
-  true
+  Dir.exists?(PATH_MUCOMMANDER)
 end
 
 def version
-  "0.8.5"
-end
-
-def print_full_version
-  puts "0.8.5"
+  # muCommander's Info.plist is an XML plist
+  s = IO.read(PATH_MUCOMMANDER + '/Contents/Info.plist')
+  return "unknown" unless s =~ /CFBundleShortVersionString.*?<string>(.*?)<\/string>/m
+  $1
 end
 
 def copy_data(source_dir, dest_dir)
