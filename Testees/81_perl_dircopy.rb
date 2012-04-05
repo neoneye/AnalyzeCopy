@@ -20,7 +20,7 @@ def version
   s1.sub!(/built for.*?$/i, '')
   s1.strip!
   s2 = output.split("\n")[0].strip
-  "#{s1}\n#{s2}"
+  "#{s1} - #{s2}"
 end
 
 def print_full_version

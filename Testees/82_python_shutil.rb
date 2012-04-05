@@ -12,7 +12,7 @@ end
 def version
   s1 = `#{PATH_PYTHON} --version 2>&1`.strip
   s2 = `#{PATH_COPY}`.split("\n")[0].strip
-  "#{s1}\n#{s2}"
+  "#{s1} - #{s2}"
 end
 
 def print_full_version

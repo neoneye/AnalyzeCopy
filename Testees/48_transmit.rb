@@ -1,13 +1,15 @@
+PATH_TRANSMIT = '/Applications/Transmit.app'
+
 def is_installed
-  true
+  Dir.exists?(PATH_TRANSMIT)
 end
 
 def version
-  "4.1.5"
-end
-
-def print_full_version
-  puts "4.1.5"
+  # Transmit's Info.plist is a text plist
+  s = IO.read(PATH_TRANSMIT + '/Contents/Info.plist', :encoding => "iso-8859-1")
+  #return "unknown" unless s =~ /CFBundleShortVersionString.*?"(.*?)"/
+  #$1
+  "4.1.7"
 end
 
 def copy_data(source_dir, dest_dir)
