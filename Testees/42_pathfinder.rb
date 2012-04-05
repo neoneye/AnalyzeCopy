@@ -1,17 +1,18 @@
+PATH_PATHFINDER = '/Applications/Path Finder.app'
+
 def name
-  'PathFinder'
+  'Path Finder'
 end
 
 def is_installed
-  true
+  Dir.exists?(PATH_PATHFINDER)
 end
 
 def version
-  "5.6.5"
-end
-
-def print_full_version
-  puts "5.6.5"
+  # Path Finder's Info.plist is an XML plist
+  s = IO.read(PATH_PATHFINDER + '/Contents/Info.plist')
+  return "unknown" unless s =~ /CFBundleShortVersionString.*?<string>(.*?)<\/string>/m
+  $1
 end
 
 def copy_data(source_dir, dest_dir)

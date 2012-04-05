@@ -1,3 +1,7 @@
+=begin
+rar/unrar commands can be downloaded here
+http://rarlab.com/download.htm
+=end
 RAR_PATH = File.expand_path("~/bin/rar")
 UNRAR_PATH = File.expand_path("~/bin/unrar")
 
@@ -10,12 +14,9 @@ def is_installed
 end
 
 def version
-  `#{RAR_PATH}`.grep(/opyri/)[0].match(/^(RAR\s\d+\.\d+)/).to_s + "\n" +
-  `#{UNRAR_PATH}`.grep(/opyri/)[0].match(/^(UNRAR\s\d+\.\d+)/).to_s
-end
-
-def print_full_version
-  puts "todo"
+  s0 = `#{RAR_PATH}`.split("\n").grep(/opyri/)[0].match(/^(RAR\s\d+\.\d+)/).to_s
+  s1 = `#{UNRAR_PATH}`.split("\n").grep(/opyri/)[0].match(/^(UNRAR\s\d+\.\d+)/).to_s
+  s0 + ' - ' + s1
 end
 
 def copy_data(source_dir, dest_dir)

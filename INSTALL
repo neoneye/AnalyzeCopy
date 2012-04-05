@@ -30,12 +30,6 @@ install "osxutils 1.7"
 http://osxutils.sourceforge.net/
 
 STEP#3
-install "xbup 2.0"
-http://www.shoup.net/xbup/
-installation procedure for xbup can be found on page 6 in it's doc.pdf.
-if you just do a make, make install, then it will install itself in ~/bin
-
-STEP#4
 Compile AnalyzeCopy:
 prompt> cd utils
 prompt> pwd

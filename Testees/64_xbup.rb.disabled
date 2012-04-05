@@ -1,6 +1,8 @@
 =begin
 Uses "xbup" by Victor Shoup
 http://www.shoup.net/xbup/
+installation procedure for xbup can be found on page 6 in it's doc.pdf.
+if you just do a make, make install, then it will install itself in ~/bin
 =end
 PATH_RSYNC = "/usr/bin/rsync"
 PATH_XBUP_SPLIT = File.expand_path("~/bin/splitf_xattr")
