@@ -157,9 +157,6 @@ class Formatter2
     CSV.foreach("index.csv") do |row|
       csv_rows << row
     end
-    #CSV.open('index.csv', 'r', ';') do |row|
-    #  csv_rows << row
-    #end
     
     csv_columns = csv_rows.transpose
     

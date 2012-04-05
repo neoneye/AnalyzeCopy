@@ -121,14 +121,6 @@ class CSVResults
         csv << row
       end
     end
-    
-    #File.open(filename, "w+") do |f| 
-    #  CSV::Writer.generate(f, ';') do |csv|
-    #    @csv_result_rows.each do |row|
-    #      csv << row
-    #    end
-    #  end
-    #end
   end
   
 end # class CSVResults
