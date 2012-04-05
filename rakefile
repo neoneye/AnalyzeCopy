@@ -16,7 +16,7 @@ task :tests do
   Runner.instance.tests.each do |t| 
     name = t.class::NAME
     info = t.installation_status
-    puts("%-40s %s" % [name, info])
+    puts("%40s - %s" % [name, info])
   end
 end
 
@@ -25,26 +25,19 @@ task :testees do
   Runner.instance.testees.each do |t| 
     name = t.class::NAME
     info = t.installation_status
-    puts("%-40s %s" % [name, info])
+    puts("%40s - %s" % [name, info])
   end
 end
 
-
-
-desc "list the ignored tests"
-task :list_ignored do
-  r = Runner.instance
-  puts "--------- CAN RUN ALL TESTS? ---------"
-  r.testees.each do |t| 
+desc "show list of ignored tests"
+task :ignored do
+  Runner.instance.testees.each do |t| 
     name = t.class::NAME
     ary = t.ignore_tests || []
-    s = ary.empty? ? "yes" : ("NOT " + ary.join(", "))
-    puts("   %20s ... %s" % [name, s])
+    puts("%40s - %s" % [name, ary.to_s])
   end
 end
 
-desc "li is shorthand for list_ignored"
-task :li => :list_ignored
 
 desc "determine how many test dataset groups that are needed"
 task :group do
