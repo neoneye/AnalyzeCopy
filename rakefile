@@ -10,56 +10,54 @@ def obtain_system_version
   "%s %s (%s)" % (`sw_vers`.scan(/:\s+(.*?)$/m))
 end
 
+namespace :info do
 
-desc "Show overview of all tests"
-task :tests do
-  Runner.instance.tests.each do |t| 
-    name = t.class::NAME
-    info = t.installation_status
-    puts("%40s - %s" % [name, info])
-  end
-end
-
-desc "Show overview of all testees"
-task :testees do
-  Runner.instance.testees.each do |t| 
-    name = t.class::NAME
-    info = t.installation_status
-    puts("%40s - %s" % [name, info])
-  end
-end
-
-desc "show list of ignored tests"
-task :ignored do
-  Runner.instance.testees.each do |t| 
-    name = t.class::NAME
-    ary = t.ignore_tests || []
-    puts("%40s - %s" % [name, ary.to_s])
-  end
-end
-
-
-desc "determine how many test dataset groups that are needed"
-task :group do
-  r = Runner.instance
-  puts "-------------- groups_and_tests --------------"
-  r.groups_and_tests.each do |groupname, testnames|
-    s = "ALL"
-    if testnames && testnames.size > 0
-      s = "exclude " + testnames.join(", ")
+  desc "Show list of tests and their version number"
+  task :tests do
+    Runner.instance.tests.each do |t| 
+      name = t.class::NAME
+      info = t.installation_status
+      puts("%40s - %s" % [name, info])
     end
-    puts "%20s ... %-s" % [groupname, s]
   end
-  puts "-------------- testee_groups --------------"
-  r.testees.each_with_index do |t, i|
-    testeename = r.testee_names[i]
-    groupname = r.testee_groups[i]
-    puts "%20s ... %-s" % [testeename, groupname]
+
+  desc "Show list of testees and their version number"
+  task :testees do
+    Runner.instance.testees.each do |t| 
+      name = t.class::NAME
+      info = t.installation_status
+      puts("%40s - %s" % [name, info])
+    end
   end
-end
 
-task :g => :group
+  desc "Show list testees and which tests they should not be exposed to"
+  task :ignored do
+    Runner.instance.testees.each do |t| 
+      name = t.class::NAME
+      ary = t.ignore_tests || []
+      puts("%40s - %s" % [name, ary.to_s])
+    end
+  end
 
+  desc "Show list of groups and what tests they exclude"
+  task :groups do
+    Runner.instance.groups_and_tests.each do |groupname, testnames|
+      ary = testnames || []
+      puts("%40s - %s" % [groupname, ary.to_s])
+    end
+  end
+
+  desc "Show which group should be used as source folder for each testees"
+  task :whatgroup do
+    r = Runner.instance
+    r.testees.each_with_index do |t, i|
+      testeename = r.testee_names[i]
+      groupname = r.testee_groups[i]
+      puts("%40s - %s" % [testeename, groupname])
+    end
+  end
+
+end # namespace :info
 
 task :create_and_mount do
   create_and_mount_volume("AnalyzeCopySource")
