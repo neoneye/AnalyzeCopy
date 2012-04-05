@@ -1,4 +1,4 @@
-PATH = "/usr/bin/ruby"
+PATH = `which ruby`.strip
 
 def name
   'Ruby FileUtils.cp_r'
@@ -13,11 +13,7 @@ def is_installed
 end
 
 def version
-  `#{PATH} -v`.sub(/\s?patchlevel\s\d+/i, '').sub(/\[universa.*/i, '').strip
-end
-
-def print_full_version
-  system "#{PATH} -v"
+  `#{PATH} -v`.strip
 end
 
 def copy_data(source_dir, dest_dir)
