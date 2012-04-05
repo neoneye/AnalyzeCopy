@@ -12,7 +12,7 @@ class TestBase
   # such tool could be SetFile, chmod, perl.
   # this method returns the version number
   def version
-    "sometool 6.6.6"
+    "versionless"
   end
   
   def installation_status

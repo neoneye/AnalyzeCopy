@@ -5,10 +5,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `touch my_setuid_file`
   `sudo chmod u+s my_setuid_file`

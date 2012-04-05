@@ -8,10 +8,6 @@ def is_installed
   File.exists?(PATH)
 end
 
-def version
-  nil
-end
-
 def create
   `mkdir dir1`
   `mkdir dir1/subdir`

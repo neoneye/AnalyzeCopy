@@ -13,7 +13,7 @@ def is_installed
 end
 
 def version
-  `#{PATH}`.entries[0].strip
+  `#{PATH}`.split("\n")[0].strip
 end
 
 def create

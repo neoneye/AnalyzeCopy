@@ -6,10 +6,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `touch file1`
   `ln -s file1 sl1`

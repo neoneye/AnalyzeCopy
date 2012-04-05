@@ -2,10 +2,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `mkfifo fifo1`
   `ln fifo1 fifo2`

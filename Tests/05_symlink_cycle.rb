@@ -6,10 +6,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   # a cycle of three symlinks
   `ln -s sl3 sl1`

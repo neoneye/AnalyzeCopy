@@ -2,10 +2,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `sudo mknod my_null_char_node c 3 2`
 end

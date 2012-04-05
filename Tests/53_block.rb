@@ -2,10 +2,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `sudo mknod my_vn0_block_node b 1 0`
 end

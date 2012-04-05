@@ -5,10 +5,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `touch file777`
   `sudo chmod 777 file777`

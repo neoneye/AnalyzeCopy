@@ -5,10 +5,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `touch owned-by-root`
   `sudo chown root:wheel owned-by-root`

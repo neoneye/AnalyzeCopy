@@ -2,10 +2,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `touch my_locked_file`
   `chflags uchg my_locked_file`

@@ -4,10 +4,6 @@ def is_installed
   File.exists?(PATH)
 end
 
-def version
-  nil # xattr is versionless
-end
-
 def create
   `touch myfile`
   `#{PATH} -w com.opcoders.a_first "first" myfile`

@@ -11,10 +11,6 @@ def is_installed
   File.exists?(PATH)
 end
 
-def version
-  nil # xattr is versionless
-end
-
 def create
   `touch xattr0.txt`
   `#{PATH} -w com.opcoders.empty_xattr "" xattr0.txt`

@@ -5,10 +5,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `mkdir a_sticky_dir`
   `chmod +t a_sticky_dir`

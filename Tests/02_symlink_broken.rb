@@ -6,10 +6,6 @@ def is_installed
   true
 end
 
-def version
-  nil
-end
-
 def create
   `ln -s nonexisting sl1`
 end
