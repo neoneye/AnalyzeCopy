@@ -1,12 +1,10 @@
 require 'rake/clean'
 
 CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'ac_mklink_acl', 'bb_hardlink')
-#CLEAN.include('ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink', 'ac_getmode')
 CLOBBER.include('*.o')
 
 
 task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'ac_mklink_acl', 'bb_hardlink']
-#task :default => ['ac_copy', 'ac_xattr', 'ac_setresource', 'ac_bkuptime', 'bb_hardlink', 'ac_getmode']
 
 SRC = FileList['*.m', '*.c']
 OBJ = SRC.ext('o')
@@ -19,37 +17,37 @@ rule '.o' => '.c' do |t|
   sh "gcc -c -o #{t.name} #{t.source}"
 end
 
-OBJ_COPY = ['ac_copy.o']  
+OBJ_COPY = 'ac_copy.o'
 file "ac_copy" => OBJ_COPY do
   sh "gcc -o ac_copy #{OBJ_COPY} -framework CoreFoundation -framework Foundation"
 end
 
-OBJ_XATTR = ['ac_xattr.o']  
+OBJ_XATTR = 'ac_xattr.o'
 file "ac_xattr" => OBJ_XATTR do
   sh "gcc -o ac_xattr #{OBJ_XATTR}"
 end
 
-OBJ_BKUPTIME = ['ac_bkuptime.o']  
+OBJ_BKUPTIME = 'ac_bkuptime.o'
 file "ac_bkuptime" => OBJ_BKUPTIME do
   sh "gcc -o ac_bkuptime #{OBJ_BKUPTIME}"
 end
 
-OBJ_MKLINK_ACL = ['ac_mklink_acl.o']  
+OBJ_MKLINK_ACL = 'ac_mklink_acl.o'
 file "ac_mklink_acl" => OBJ_MKLINK_ACL do
   sh "gcc -o ac_mklink_acl #{OBJ_MKLINK_ACL}"
 end
 
-#OBJ_GETMODE = ['ac_getmode.o']  
+#OBJ_GETMODE = 'ac_getmode.o'
 #file "ac_getmode" => OBJ_GETMODE do
 #  sh "gcc -o ac_getmode #{OBJ_GETMODE}"
 #end
 
-OBJ_SETRES = ['ac_setresource.o']  
+OBJ_SETRES = 'ac_setresource.o'
 file "ac_setresource" => OBJ_SETRES do
   sh "gcc -o ac_setresource #{OBJ_SETRES} -framework CoreFoundation -framework Foundation -framework CoreServices"
 end
   
-OBJ_HARDLINK = ['bb_hardlink.o']  
+OBJ_HARDLINK = 'bb_hardlink.o'
 file "bb_hardlink" => OBJ_HARDLINK do
   sh "gcc -o bb_hardlink #{OBJ_HARDLINK}"
 end

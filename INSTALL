@@ -1,45 +1,52 @@
 AnalyzeCopy - black box validation suite for copying files
 
 
-==== INSTALL ====
+==== PREREQUISITES ====
 
-In order to run AnalyzeCopy you must install:
+ 1. Mac OS X 10.7.x
 
- 1. Ruby 1.9.3 or better  (ruby --version)
+ 2. Ruby 1.9.3 or better  (ruby --version)
     An old version of Ruby comes with OS X which cannot be used.
 	I recommend installing ruby using RVM
     http://beginrescueend.com/rvm/install/
 
- 2. Rake 0.9.2 or better  (rake --version)
+ 3. Rake 0.9.2 or better  (rake --version)
     Is usually installed together with Ruby 1.9.3.
 	If not you have to install it manually.
 
- 3. Python, any version will do
+ 4. Python, any version will do
 
- 4. Perl, any version will do
-
- 5. sudo perl -MCPAN -e 'install File::Copy::Recursive'
-
- 6. osxutils 1.7
-    http://osxutils.sourceforge.net/
-
- 7. xbup 2.0
-    http://www.shoup.net/xbup/
-    installation procedure for xbup can be found on page 6 in it's doc.pdf.
-    if you just do a make, make install, then it will install itself in ~/bin
+ 5. Perl, any version will do
 
 
 
+==== INSTALLATION ====
 
-Now compile AnalyzeCopy:
+STEP#1
+sudo perl -MCPAN -e 'install File::Copy::Recursive'
 
+STEP#2
+install "osxutils 1.7"
+http://osxutils.sourceforge.net/
+
+STEP#3
+install "xbup 2.0"
+http://www.shoup.net/xbup/
+installation procedure for xbup can be found on page 6 in it's doc.pdf.
+if you just do a make, make install, then it will install itself in ~/bin
+
+STEP#4
+Compile AnalyzeCopy:
 prompt> cd utils
 prompt> pwd
 /Users/johndoe/code/AnalyzeCopy/utils
 prompt> rake
 prompt>
 
+
+
 AnalyzeCopy is now ready to be used.
+
 
 
 ==== USING ANALYZECOPY ====
