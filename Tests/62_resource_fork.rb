@@ -49,15 +49,15 @@ def verify(original_dir)
     errors.delete('Y') if FileUtils.compare_file(
       "file_with_rsrc", File.join(original_dir, "file_with_rsrc"))
     errors.delete('D') if FileUtils.compare_file(
-      "file_with_rsrc/rsrc", File.join(original_dir, "file_with_rsrc/rsrc"))
+      "file_with_rsrc/..namedfork/rsrc", "data.txt")
   end
   if FileTest.exist?("hl1") && FileTest.exist?("hl2")
     errors.delete('Z')
     ino1 = File.stat("hl1").ino
     ino2 = File.stat("hl2").ino
     errors.delete('A') if ino1 == ino2
-    errors.delete('B') if FileUtils.compare_file("hl1/rsrc", "data.txt")
-    errors.delete('C') if FileUtils.compare_file("hl2/rsrc", "data.txt")
+    errors.delete('B') if FileUtils.compare_file("hl1/..namedfork/rsrc", "data.txt")
+    errors.delete('C') if FileUtils.compare_file("hl2/..namedfork/rsrc", "data.txt")
   end
   { :errors => errors }
 end
