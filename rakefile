@@ -1,7 +1,7 @@
-require "runner"
-require "formatter"
-require "formatter2"
-require "save_results_as_csv"
+require_relative "runner"
+require_relative "formatter"
+require_relative "formatter2"
+require_relative "save_results_as_csv"
 
 
 def hdiutil_create_sparseimage(name)
@@ -43,7 +43,8 @@ def create_and_mount_volume(name)
   hdiutil_mount_sparseimage(name)
   
   # enable access control lists on our volume
-  system("sudo", "fsaclctl", "-p", "/Volumes/#{name}", "-e")
+  # on Snow Leopard + Lion this is enabled by default
+  # system("sudo", "fsaclctl", "-p", "/Volumes/#{name}", "-e")
 
   # make it easy to detect if the volume is ours
   FileUtils.touch("/Volumes/#{name}/AnalyzeCopy-Volume")

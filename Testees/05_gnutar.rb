@@ -6,7 +6,7 @@ def is_installed
 end
 
 def version
-  `#{PATH} --version`.grep(/GNU tar/)[0].strip
+  `#{PATH} --version`.split("\n").grep(/GNU tar/)[0].strip
 end
 
 def print_full_version

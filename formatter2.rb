@@ -3,7 +3,7 @@
 # copyright 2009 - Simon Strandgaard
 #
 #
-require "runner"
+require_relative "runner"
 require "csv"
 
 module FormatterMisc2
@@ -154,9 +154,12 @@ class Formatter2
   def run(ary_tests)
     
     csv_rows = []
-    CSV.open('index.csv', 'r', ';') do |row|
+    CSV.foreach("index.csv") do |row|
       csv_rows << row
     end
+    #CSV.open('index.csv', 'r', ';') do |row|
+    #  csv_rows << row
+    #end
     
     csv_columns = csv_rows.transpose
     

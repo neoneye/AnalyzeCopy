@@ -3,7 +3,7 @@
 # copyright 2009 - Simon Strandgaard
 #
 #
-require "runner"
+require_relative "runner"
 
 module FormatterMisc
 

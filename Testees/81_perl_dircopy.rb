@@ -10,12 +10,16 @@ def is_installed
 end
 
 def version
-  s1 = `#{PATH_PERL} --version`.strip.entries[0]
+  output = `#{PATH_COPY}`
+  if output =~ /Recursive.pm/
+    raise "install File::Copy::Recursive is not installed"
+  end
+  s1 = `#{PATH_PERL} --version`.strip.split("\n")[0]
   s1.sub!(/This is /i, '')
   s1.sub!(/, v/i, ' ')
   s1.sub!(/built for.*?$/i, '')
   s1.strip!
-  s2 = `#{PATH_COPY}`.entries[0].strip
+  s2 = output.split("\n")[0].strip
   "#{s1}\n#{s2}"
 end
 

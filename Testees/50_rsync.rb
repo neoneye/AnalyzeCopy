@@ -15,7 +15,7 @@ def is_installed
 end
 
 def version
-  `#{PATH} --version`.entries[0].gsub(/version\s/i, '').sub(/protocol/i, '').strip
+  `#{PATH} --version`.split("\n")[0].gsub(/version\s/i, '').sub(/protocol/i, '').strip
 end
 
 def print_full_version

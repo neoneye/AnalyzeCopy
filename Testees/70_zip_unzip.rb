@@ -10,8 +10,8 @@ def is_installed
 end
 
 def version
-  `#{ZIP_PATH} -v`.entries[1].sub(/Info-ZIP.*/m, '').sub(/, by /, '').sub(/This is /, '') + "\n" +
-  `#{UNZIP_PATH} -v`.entries[0].sub(/Info-ZIP.*/m, '').sub(/, by /, '')
+  `#{ZIP_PATH} -v`.split("\n")[1].sub(/Info-ZIP.*/m, '').sub(/, by /, '').sub(/This is /, '') + "\n" +
+  `#{UNZIP_PATH} -v`.split("\n")[0].sub(/Info-ZIP.*/m, '').sub(/, by /, '')
 end
 
 def print_full_version

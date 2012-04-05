@@ -4,7 +4,7 @@
 #
 #
 require "csv"
-require "runner"
+require_relative "runner"
 
 class CSVResults
   include RunnerMisc
@@ -116,13 +116,19 @@ class CSVResults
   end
 
   def write(filename)
-    File.open(filename, "w+") do |f| 
-      CSV::Writer.generate(f, ';') do |csv|
-        @csv_result_rows.each do |row|
-          csv << row
-        end
+    CSV.open(filename, "wb") do |csv|
+      @csv_result_rows.each do |row|
+        csv << row
       end
     end
+    
+    #File.open(filename, "w+") do |f| 
+    #  CSV::Writer.generate(f, ';') do |csv|
+    #    @csv_result_rows.each do |row|
+    #      csv << row
+    #    end
+    #  end
+    #end
   end
   
 end # class CSVResults

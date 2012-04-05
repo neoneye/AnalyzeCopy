@@ -5,8 +5,8 @@
 #
 require "singleton"
 require "yaml"
-require "TesteeBase"
-require "TestBase"
+require_relative "TesteeBase"
+require_relative "TestBase"
 
 module RunnerMisc
   # load files as anonymous objects inherited from superklass
