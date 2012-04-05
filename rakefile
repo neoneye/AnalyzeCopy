@@ -3,12 +3,7 @@ require_relative "formatter"
 require_relative "formatter2"
 require_relative "save_results_as_csv"
 require_relative "hdiutil"
-
-
-# example of the string returned: "Mac OS X 10.5.8 (9L31a)"
-def obtain_system_version
-  "%s %s (%s)" % (`sw_vers`.scan(/:\s+(.*?)$/m))
-end
+require_relative "misc"
 
 namespace :info do
 
@@ -85,6 +80,7 @@ task :force_unmount do
   hdiutil_unmount_force("AnalyzeCopyDest")
 end
 
+desc "removes the AnalyzeCopy sparseimages"
 task :clean do
   FileUtils.rm_f("AnalyzeCopySource.sparseimage")
   FileUtils.rm_f("AnalyzeCopyDest.sparseimage")
