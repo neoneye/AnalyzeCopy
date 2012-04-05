@@ -10,8 +10,9 @@ def is_installed
 end
 
 def version
-  `#{PATH_MKALIAS} -v`.sub(/version /, '').sub(/\s?by.*$/, '') + "\n"
-  `#{PATH_HFSDATA} -v`.sub(/version /, '').sub(/\s?by.*$/, '') + "\n"
+  s0 = `#{PATH_MKALIAS} -v`.sub(/version /, '').sub(/\s?by.*\z/m, '')
+  s1 = `#{PATH_HFSDATA} -v`.sub(/version /, '').sub(/\s?by.*\z/m, '')
+  s0 + ' - ' + s1
 end
 
 def create

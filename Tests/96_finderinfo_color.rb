@@ -6,9 +6,13 @@ PATH_SETLABEL = "/usr/local/bin/setlabel"
 PATH_HFSDATA = "/usr/local/bin/hfsdata"
 
 def is_installed
-  a = File.exists?(PATH_SETLABEL)
-  b = File.exists?(PATH_HFSDATA)
-  a && b
+  File.exists?(PATH_SETLABEL) && File.exists?(PATH_HFSDATA)
+end
+
+def version
+  s0 = `#{PATH_SETLABEL} -v`.sub(/version /, '').sub(/\s?by.*\z/m, '')
+  s1 = `#{PATH_HFSDATA} -v`.sub(/version /, '').sub(/\s?by.*\z/m, '')
+  s0 + ' - ' + s1
 end
 
 def create
