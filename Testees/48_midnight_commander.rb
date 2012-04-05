@@ -9,11 +9,7 @@ def is_installed
 end
 
 def version
-  `#{PATH} --version`.entries[0].strip
-end
-
-def print_full_version
-  puts "todo"
+  `#{PATH} --version`.split("\n")[0].strip
 end
 
 def copy_data(source_dir, dest_dir)
