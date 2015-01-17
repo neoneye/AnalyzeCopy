@@ -1,4 +1,4 @@
-= AnalyzeCopy
+# AnalyzeCopy
 
 Backup and restore should not be a lossy process. Do the right thing!
 
@@ -7,9 +7,10 @@ Test, test and test again.
 This project is about evil torture-testing of backup tools/file utils on Mac OS X. 
 
 
-== Introduction
+## Introduction
 
 There are many things to consider when copying files. 
+
 1. Data Fork
 2. Resource Fork
 3. Permission
@@ -24,48 +25,55 @@ There are many things to consider when copying files.
 Because there are so many things, it's really no surprise that it's causing problems for untested programs.
 
 
-== FEATURES
+## FEATURES
 
 This program generates a HTML comparison table.
 
 
-== INSTALL
+## INSTALL
 
 Requirements:
-  ruby 1.8.x or better.
-  rake
+
+	ruby 1.8.x or better.
+	rake
 
 
-== USAGE
+## USAGE
 
 step 1:
-prompt> rake
+
+	prompt> rake
 
 step 2:
+
 type in your password when asked for password 
 
 step 3:
+
 wait a few minutes
 
 step 4:
+
 the generated index.html file is opened in your browser
 
 step 5:
+
 Ignore this step if you want to run the test multiple times.
-prompt> rake unmount
-prompt> rm AnalyzeCopySource.sparseimage 
-remove AnalyzeCopySource.sparseimage? y
-prompt> rm AnalyzeCopyDest.sparseimage 
-remove AnalyzeCopyDest.sparseimage? y
-prompt>
+
+	prompt> rake unmount
+	prompt> rm AnalyzeCopySource.sparseimage 
+	remove AnalyzeCopySource.sparseimage? y
+	prompt> rm AnalyzeCopyDest.sparseimage 
+	remove AnalyzeCopyDest.sparseimage? y
+	prompt>
 
 
 
-== AUTHOR
+## AUTHOR
 
-Simon Strandgaard
-* mailto:simon@opcoders.com
+Mail: neoneye@gmail.com
 
+Twitter: https://twitter.com/neoneye
 
 
 
@@ -78,18 +86,18 @@ AnalyzeCopy
 project description:
 Torture-testing of File managers and programs that copy files. 
 
-------------------------------------------------------------
+---
 see this article.
 
 http://www.coredumps.de/doc/dump/zwicky/testdump.doc.html
 
 Torture-testing Backup and Archive Programs: 
 Things You Ought to Know But Probably Would Rather Not
-         Elizabeth D. Zwicky 
-         SRI International
-         Lisa V 1991
+Elizabeth D. Zwicky 
+SRI International
+Lisa V 1991
 
-------------------------------------------------------------
+---
 
 
 Inspirion comes from "Backup Bouncer" by "Nathaniel Gray",
@@ -103,19 +111,21 @@ features.
 I already have a whitebox test suite.
 
 
-------------------------------------------------------------
+---
 
 Vision: 
+
  1. test for correctness
  2. test for speed
  3. test "copy" tools on multiple platforms
  4. generate a HTML report
 
 Mission right now:
+
  1. something that can test my own "copy" program for correctness.
 
 
-------------------------------------------------------------
+---
 IDEA: are tags preserved.
 
 IDEA: html report should gather data from the result dirs, 
@@ -176,7 +186,7 @@ this would make it more easy to see what tests has been disabled per testee.
 
 ------------------------------------------------------------
 
-==== stat.atime
+#### stat.atime
 
 We could create a read-only volume and copy data from it.
 After the copy operation is completed then remount the
@@ -184,7 +194,7 @@ target volume as read-only... and then compare atime.
 However it's not worth it.
 
 
-==== stat.ctime
+#### stat.ctime
 
 stat.ctime is updated when the inode is changed, by the filesystem. It's not a user settable property.
 So I don't think its possible to test it.
@@ -194,7 +204,7 @@ Conclusion: no, it doesn't work.
 http://lists.apple.com/archives/carbon-dev/2007/Aug/msg00338.html
 
 
-==== cloaked files (inode 0)
+#### cloaked files (inode 0)
 
 In the apple filesystem there are some files with inode 0, making
 them invisible for most tools. 
